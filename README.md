@@ -35,25 +35,28 @@ project04/
 ---
 
 ## 📂 Estrutura do Projeto
-```bash
+
 1. Clone o repositório
+```bash
 git clone https://github.com/seu-usuario/seu-repo.git
-cd project04
+cd seu-diretorio
+```
 
 2. Crie um ambiente virtual (opcional, mas recomendado)
+```bash
 python3 -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
+
 ---
 
 ## ▶️ Como Executar
 
 Inicie o servidor Flask:
-
+```bash
 python app.py
-
-
+```
 Abra no navegador:
 
 http://localhost:5000
