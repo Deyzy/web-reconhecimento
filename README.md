@@ -65,23 +65,16 @@ http://localhost:5000
 ## 🔬 Tecnologias Utilizadas
 
 Python 3.11+
-
 Flask
-
 DeepFace
-
 OpenCV
-
 scikit-learn
-
 Pillow
 
 ## ⚠️ Observações
 
 É necessário GPU ou um bom processador para melhor desempenho do DeepFace.
-
 As imagens são salvas em static/fotos/ para cada usuário cadastrado.
-
 O limiar de similaridade está definido como 0.7. Você pode ajustar no app.py:
 
 LIMIAR = 0.7
