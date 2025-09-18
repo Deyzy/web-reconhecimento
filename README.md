@@ -62,37 +62,6 @@ Abra no navegador:
 http://localhost:5000
 ```
 
-## 🖥️ Uso do Sistema
-Cadastro de usuário
-
-Vá até /
-
-Insira um nome e capture uma foto
-
-Clique em Salvar
-
-O sistema cria a pasta static/fotos/<nome>/ contendo:
-
-foto.jpg → foto original
-
-vetor.npy → vetor de embedding da face
-
-Busca facial
-
-Vá até /busca
-
-A câmera será ativada
-
-O sistema tira uma foto automaticamente a cada 5 segundos
-
-Se uma correspondência for encontrada, aparece:
-
-Mensagem: Essa é a <nome>!
-
-Similaridade
-
-Foto cadastrada da pessoa reconhecida
-
 ## 🔬 Tecnologias Utilizadas
 
 Python 3.11+
