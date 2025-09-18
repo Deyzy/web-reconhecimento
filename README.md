@@ -58,8 +58,9 @@ Inicie o servidor Flask:
 python app.py
 ```
 Abra no navegador:
-
+```bash
 http://localhost:5000
+```
 
 ## 🖥️ Uso do Sistema
 Cadastro de usuário
