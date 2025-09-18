@@ -30,3 +30,97 @@ project04/
 ├── templates/
 │   ├── index.html        # Página inicial / Cadastro
 │   └── busca.html        # Página de busca facial
+
+⚙️ Instalação
+1. Clone o repositório
+git clone https://github.com/seu-usuario/seu-repo.git
+cd project04
+
+2. Crie um ambiente virtual (opcional, mas recomendado)
+python3 -m venv venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
+
+3. Instale as dependências
+pip install -r requirements.txt
+
+
+Se você não tiver o arquivo requirements.txt, um exemplo é:
+
+flask
+flask-cors
+numpy
+deepface
+pillow
+scikit-learn
+opencv-python
+
+▶️ Como Executar
+
+Inicie o servidor Flask:
+
+python app.py
+
+
+Abra no navegador:
+
+http://localhost:5000
+
+🖥️ Uso do Sistema
+Cadastro de usuário
+
+Vá até /
+
+Insira um nome e capture uma foto
+
+Clique em Salvar
+
+O sistema cria a pasta static/fotos/<nome>/ contendo:
+
+foto.jpg → foto original
+
+vetor.npy → vetor de embedding da face
+
+Busca facial
+
+Vá até /busca
+
+A câmera será ativada
+
+O sistema tira uma foto automaticamente a cada 5 segundos
+
+Se uma correspondência for encontrada, aparece:
+
+Mensagem: Essa é a <nome>!
+
+Similaridade
+
+Foto cadastrada da pessoa reconhecida
+
+🔬 Tecnologias Utilizadas
+
+Python 3.11+
+
+Flask
+
+DeepFace
+
+OpenCV
+
+scikit-learn
+
+Pillow
+
+⚠️ Observações
+
+É necessário GPU ou um bom processador para melhor desempenho do DeepFace.
+
+As imagens são salvas em static/fotos/ para cada usuário cadastrado.
+
+O limiar de similaridade está definido como 0.7. Você pode ajustar no app.py:
+
+LIMIAR = 0.7
+
+📜 Licença
+
+Este projeto é de uso educacional. Modifique e use livremente conforme suas necessidades.
