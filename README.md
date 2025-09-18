@@ -31,7 +31,12 @@ project04/
 │   ├── index.html        # Página inicial / Cadastro
 │   └── busca.html        # Página de busca facial
 
-⚙️ Instalação
+---
+
+```bash
+
+## ⚙️ Instalação
+
 1. Clone o repositório
 git clone https://github.com/seu-usuario/seu-repo.git
 cd project04
@@ -55,7 +60,9 @@ pillow
 scikit-learn
 opencv-python
 
-▶️ Como Executar
+---
+
+## ▶️ Como Executar
 
 Inicie o servidor Flask:
 
