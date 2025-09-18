@@ -5,7 +5,7 @@ Ele permite cadastrar rostos no sistema e depois identificar pessoas através da
 
 ---
 
-## 📌 Funcionalidades
+## Funcionalidades
 
 - 📷 **Cadastro de usuários** com foto
 - 🧠 **Extração de embeddings faciais** usando DeepFace (Facenet + RetinaFace)
@@ -15,7 +15,7 @@ Ele permite cadastrar rostos no sistema e depois identificar pessoas através da
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```bash
 project04/
@@ -31,12 +31,11 @@ project04/
 │   ├── index.html        # Página inicial / Cadastro
 │   └── busca.html        # Página de busca facial
 
+```
 ---
 
+## 📂 Estrutura do Projeto
 ```bash
-
-## ⚙️ Instalação
-
 1. Clone o repositório
 git clone https://github.com/seu-usuario/seu-repo.git
 cd project04
@@ -45,21 +44,7 @@ cd project04
 python3 -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
-
-3. Instale as dependências
-pip install -r requirements.txt
-
-
-Se você não tiver o arquivo requirements.txt, um exemplo é:
-
-flask
-flask-cors
-numpy
-deepface
-pillow
-scikit-learn
-opencv-python
-
+```
 ---
 
 ## ▶️ Como Executar
@@ -73,7 +58,7 @@ Abra no navegador:
 
 http://localhost:5000
 
-🖥️ Uso do Sistema
+## 🖥️ Uso do Sistema
 Cadastro de usuário
 
 Vá até /
@@ -104,7 +89,7 @@ Similaridade
 
 Foto cadastrada da pessoa reconhecida
 
-🔬 Tecnologias Utilizadas
+## 🔬 Tecnologias Utilizadas
 
 Python 3.11+
 
@@ -118,7 +103,7 @@ scikit-learn
 
 Pillow
 
-⚠️ Observações
+## ⚠️ Observações
 
 É necessário GPU ou um bom processador para melhor desempenho do DeepFace.
 
@@ -128,6 +113,6 @@ O limiar de similaridade está definido como 0.7. Você pode ajustar no app.py:
 
 LIMIAR = 0.7
 
-📜 Licença
+## 📜 Licença
 
 Este projeto é de uso educacional. Modifique e use livremente conforme suas necessidades.
