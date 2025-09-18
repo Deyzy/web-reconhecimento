@@ -64,12 +64,12 @@ http://localhost:5000
 
 ## 🔬 Tecnologias Utilizadas
 
-Python 3.11+
-Flask
-DeepFace
-OpenCV
-scikit-learn
-Pillow
+- Python 3.11+
+- Flask
+- DeepFace
+- OpenCV
+- scikit-learn
+- Pillow
 
 ## ⚠️ Observações
 
