@@ -42,7 +42,7 @@ git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-diretorio
 ```
 
-2. Crie um ambiente virtual (opcional, mas recomendado)
+2. Crie um ambiente virtual (opcional)
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # Linux/Mac
