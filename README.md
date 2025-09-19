@@ -5,7 +5,7 @@ Ele permite cadastrar rostos no sistema e depois identificar pessoas através da
 
 ---
 
-## Funcionalidades
+##  📌 Funcionalidades
 
 - 📷 **Cadastro de usuários** com foto
 - 🧠 **Extração de embeddings faciais** usando DeepFace (Facenet + RetinaFace)
@@ -45,9 +45,16 @@ cd seu-diretorio
 2. Crie um ambiente virtual (opcional)
 ```bash
 python3 -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
 ```
+- Linux/Mac 
+```bash
+source venv/bin/activate  
+```
+ - Windows
+ ```bash
+venv\Scripts\activate 
+```
+
 
 ---
 
@@ -62,7 +69,7 @@ Abra no navegador:
 http://localhost:5000
 ```
 
-## 🔬 Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 - Python 3.11+
 - Flask
