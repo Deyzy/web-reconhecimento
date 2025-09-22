@@ -1,3 +1,5 @@
+- WINDOWS
+
 - criar o ambiente virtual
 
 python -m venv venv 
@@ -8,4 +10,19 @@ venv\Scripts\active
 
 - desativar 
 
-desactivate
+deactivate
+
+LINUX/MAC
+
+- criar o ambiente virtual
+
+python3 -m venv venv
+
+- ativar 
+
+source venv/bin/activate
+
+- desativar 
+
+deactivate
+

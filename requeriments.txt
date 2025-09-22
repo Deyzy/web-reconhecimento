@@ -1,0 +1,1 @@
+pip install flask flask-cors deepface scikit-learn numpy pillow

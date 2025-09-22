@@ -1,11 +1,11 @@
 # Sistema de Reconhecimento Facial com Flask + DeepFace
 
-Este projeto implementa um sistema de **cadastro e busca facial** utilizando **Flask**, **DeepFace** (modelo Facenet) e **cosine similarity**.  
+Este projeto implementa um sistema de **cadastro e reconhecimento facial** utilizando **Flask**, **DeepFace** (modelo Facenet) e **cosine similarity**.  
 Ele permite cadastrar rostos no sistema e depois identificar pessoas através da webcam, comparando a face detectada com as armazenadas.
 
 ---
 
-##  📌 Funcionalidades
+##  📌 Funcionalidadesj
 
 - 📷 **Cadastro de usuários** com foto
 - 🧠 **Extração de embeddings faciais** usando DeepFace (Facenet + RetinaFace)

@@ -24,11 +24,14 @@ def extrair_rosto_e_embedding(imagem_bytes):
         imagem.save(img_path)
 
         embedding = DeepFace.represent(
-            img_path=img_path,
-            model_name="Facenet",
+        img_path=img_path,
+        model_name="Facenet",
             detector_backend="retinaface",
-            enforce_detection=True
-        )[0]["embedding"]
+        enforce_detection=True,
+        prog_bar=False
+    )[0]["embedding"]
+
+
 
         return np.array(embedding), None
     except Exception as e:
