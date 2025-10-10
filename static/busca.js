@@ -1,49 +1,94 @@
-const video = document.getElementById('webcam');
-const canvas = document.getElementById('canvas');
+const videoElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('overlay');
+const canvasCtx = canvasElement.getContext('2d');
+
+const canvasFoto = document.getElementById('canvas');
 const preview = document.getElementById('preview');
 const capturarBtn = document.getElementById('capturar');
-const buscarRostoBtn = document.getElementById('buscar_rosto');
+const enviarBtn = document.getElementById('enviar');
 const resultadoDiv = document.getElementById('resultado');
-const fotoEncontrada = document.getElementById('fotoEncontrada');
+const nomeInput = document.getElementById('nome');
 
-navigator.mediaDevices.getUserMedia({ video: true })
-  .then(stream => { video.srcObject = stream; })
-  .catch(err => { alert("Erro ao acessar webcam: " + err); });
-
-capturarBtn.addEventListener('click', () => {
-  const ctx = canvas.getContext('2d');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  preview.src = canvas.toDataURL('image/jpeg');
-  preview.style.display = 'block';
+const faceDetection = new FaceDetection({
+  locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/${file}`
 });
 
-buscarRostoBtn.addEventListener('click', () => {
-  if (!preview.src) {
-    alert("Tire uma foto primeiro!");
+faceDetection.setOptions({
+  model: 'short',
+  minDetectionConfidence: 0.5
+});
+
+faceDetection.onResults(onResults);
+
+const camera = new Camera(videoElement, {
+  onFrame: async () => {
+    await faceDetection.send({ image: videoElement });
+  },
+  width: 640,
+  height: 480
+});
+
+camera.start();
+
+function onResults(results) {
+  canvasElement.width = videoElement.videoWidth;
+  canvasElement.height = videoElement.videoHeight;
+
+  canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+
+  if (results.detections.length > 0) {
+    for (const detection of results.detections) {
+      const bbox = detection.boundingBox;
+
+      const x = bbox.xCenter * canvasElement.width - bbox.width * canvasElement.width / 2;
+      const y = bbox.yCenter * canvasElement.height - bbox.height * canvasElement.height / 2;
+      const width = bbox.width * canvasElement.width;
+      const height = bbox.height * canvasElement.height;
+
+      canvasCtx.strokeStyle = 'green';
+      canvasCtx.lineWidth = 4;
+      canvasCtx.strokeRect(x, y, width, height);
+    }
+  }
+}
+
+// 📸 Captura a foto
+capturarBtn.addEventListener('click', () => {
+  canvasFoto.width = videoElement.videoWidth;
+  canvasFoto.height = videoElement.videoHeight;
+  canvasFoto.getContext('2d').drawImage(videoElement, 0, 0);
+
+  const dataURL = canvasFoto.toDataURL('image/jpeg');
+  preview.src = dataURL;
+  preview.style.display = "block";
+});
+
+// 📤 Envia para o backend
+enviarBtn.addEventListener('click', async () => {
+  const nome = nomeInput.value.trim();
+  if (!nome) {
+    alert("Digite um nome antes de enviar!");
     return;
   }
 
-  fetch('/buscar_rosto', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ foto: canvas.toDataURL('image/jpeg') })
-  })
-  .then(res => res.json())
-  .then(data => {
+  const fotoBase64 = canvasFoto.toDataURL('image/jpeg');
+
+  try {
+    const response = await fetch('/salvar_foto', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome: nome, foto: fotoBase64 })
+    });
+
+    const result = await response.json();
     resultadoDiv.classList.remove('d-none');
-    if (data.status === 'success') {
-      resultadoDiv.className = 'alert alert-success mt-3';
-      resultadoDiv.textContent = `${data.msg} (similaridade: ${data.similaridade.toFixed(2)})`;
-      if (data.foto) {
-        fotoEncontrada.src = data.foto;
-        fotoEncontrada.style.display = 'block';
-      }
-    } else {
-      resultadoDiv.className = 'alert alert-danger mt-3';
-      resultadoDiv.textContent = `${data.msg} (similaridade: ${data.similaridade.toFixed(2)})`;
-      fotoEncontrada.style.display = 'none';
-    }
-  });
+    resultadoDiv.classList.add(result.status === 'success' ? 'alert-success' : 'alert-danger');
+    resultadoDiv.innerText = result.msg;
+
+  } catch (error) {
+    console.error("Erro ao enviar foto:", error);
+    resultadoDiv.classList.remove('d-none');
+    resultadoDiv.classList.add('alert-danger');
+    resultadoDiv.innerText = "Erro ao enviar foto.";
+  }
 });
