@@ -5,7 +5,7 @@ Ele permite cadastrar rostos no sistema e depois identificar pessoas através da
 
 ---
 
-##  📌 Funcionalidadesj
+##  📌 Funcionalidades
 
 - 📷 **Cadastro de usuários** com foto
 - 🧠 **Extração de embeddings faciais** usando DeepFace (Facenet + RetinaFace)
