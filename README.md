@@ -45,8 +45,8 @@ project04/
 ├── templates/
 │   ├── index.html        # Página inicial / Cadastro
 │   └── busca.html        # Página de busca facial
-|
-|── README.md
+│
+├── README.md
 │
 ├── notes.txt
 │
