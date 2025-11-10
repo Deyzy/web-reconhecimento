@@ -68,7 +68,10 @@ project04/
 > ⚠️ **Importante**: Sempre use um ambiente virtual para isolar as dependências do projeto e evitar conflitos.
 
 ### Criar ambiente virtual (Linux e MacOS)
+```bash
 python3 -m venv venv
-
+```
 ### Ativar
+```bash
 source venv/bin/activate
+```
