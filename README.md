@@ -64,8 +64,8 @@ projeto-reconhecimento-facial/
 
 > ⚠️ **Importante**: Sempre use um ambiente virtual para isolar as dependências do projeto e evitar conflitos.
 
-# Criar ambiente virtual
+### Criar ambiente virtual (Linux e MacOS)
 python3 -m venv venv
 
-# Ativar
+### Ativar
 source venv/bin/activate
