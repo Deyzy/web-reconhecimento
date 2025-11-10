@@ -32,7 +32,7 @@ Este projeto permite:
 ---
 
 ## 📁 Estrutura do Projeto
-
+´´´
 projeto-reconhecimento-facial/
 │
 ├── app.py                  # Backend Flask (rotas e lógica principal)
@@ -48,7 +48,7 @@ projeto-reconhecimento-facial/
 │       └── vetor.npy       # Embedding facial (FaceNet, salvo como NumPy array)
 │
 └── README.md
-
+´´´
 
 ---
 
