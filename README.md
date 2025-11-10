@@ -1,91 +1,71 @@
-# Sistema de Reconhecimento Facial com Flask + DeepFace
+# 🔍 Reconhecimento Facial com Flask
 
-Este projeto implementa um sistema de **cadastro e reconhecimento facial** utilizando **Flask**, **DeepFace** (modelo Facenet) e **cosine similarity**.  
-Ele permite cadastrar rostos no sistema e depois identificar pessoas através da webcam, comparando a face detectada com as armazenadas.
-
----
-
-##  📌 Funcionalidades
-
-- 📷 **Cadastro de usuários** com foto
-- 🧠 **Extração de embeddings faciais** usando DeepFace (Facenet + RetinaFace)
-- 🔎 **Busca automática** por similaridade de rostos
-- ✅ Retorna o nome da pessoa reconhecida + nível de similaridade
-- 🖼️ Mostra também a foto cadastrada do usuário reconhecido
+Este projeto permite:
+- **Cadastrar** rostos com nome e foto via webcam.
+- **Buscar** rostos em tempo real comparando com os já cadastrados.
+- Utiliza **DeepFace** (com modelo FaceNet) e **MediaPipe** para detecção e comparação facial.
 
 ---
 
-## Estrutura do Projeto
+## 📦 Funcionalidades
 
-```bash
-project04/
-│── app.py                # Backend Flask
-│── venv/                 # Ambiente virtual (opcional)
+- 📸 **Captura de foto via webcam** no navegador.
+- 👤 **Cadastro de usuário** com nome e imagem.
+- 🔍 **Busca de rosto** comparando com os perfis salvos.
+- 📊 **Similaridade numérica** (baseada em *cosine similarity*).
+- 🖼️ **Armazenamento local** de fotos e *embeddings* faciais.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend**: HTML, JavaScript, Bootstrap 5  
+- **Bibliotecas JavaScript**:
+  - [`@mediapipe/face_detection`](https://google.github.io/mediapipe/) — detecção de rostos em tempo real
+- **Backend**: Python + Flask  
+- **Bibliotecas Python**:
+  - [`deepface`](https://github.com/serengil/deepface) — extração de *embeddings* faciais (modelo: FaceNet)
+  - `opencv-python` — processamento de imagens
+  - `scikit-learn` — cálculo de similaridade (`cosine_similarity`)
+  - `numpy` — manipulação de arrays numéricos
+
+---
+
+## 📁 Estrutura do Projeto
+
+projeto-reconhecimento-facial/
 │
+├── app.py                  # Backend Flask (rotas e lógica principal)
 ├── static/
-│   ├── fotos/            # Fotos salvas por usuário (cada pasta = 1 pessoa)
-│   ├── busca.js          # Script da tela de busca
-│   └── script.js         # Script da tela de cadastro
-│
+│   ├── script.js           # Lógica de cadastro (captura + envio)
+│   └── busca.js            # Lógica de busca (captura + comparação)
 ├── templates/
-│   ├── index.html        # Página inicial / Cadastro
-│   └── busca.html        # Página de busca facial
-
-```
----
-
-## 📂 Estrutura do Projeto
-
-1. Clone o repositório
-```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-diretorio
-```
-
-2. Crie um ambiente virtual (opcional)
-```bash
-python3 -m venv venv
-```
-- Linux/Mac 
-```bash
-source venv/bin/activate  
-```
- - Windows
- ```bash
-venv\Scripts\activate 
-```
+│   ├── index.html          # Página de cadastro de rosto
+│   └── busca.html          # Página de busca/comparação
+├── fotos/                  # Pasta gerada automaticamente (não existe inicialmente)
+│   └── <nome>/
+│       ├── foto.jpg        # Imagem salva do usuário
+│       └── vetor.npy       # Embedding facial (FaceNet, salvo como NumPy array)
+│
+└── README.md
 
 
 ---
 
 ## ▶️ Como Executar
 
-Inicie o servidor Flask:
-```bash
-python app.py
-```
-Abra no navegador:
-```bash
-http://localhost:5000
-```
+### 1. **Pré-requisitos**
+- Python 3.8 ou superior
+- `pip` instalado
+- Câmera web funcional
+- Navegador moderno (Chrome, Edge, Firefox)
 
-## 💻 Tecnologias Utilizadas
+### 2. **Criar e ativar um ambiente virtual**
 
-- Python 3.11+
-- Flask
-- DeepFace
-- OpenCV
-- scikit-learn
-- Pillow
+> ⚠️ **Importante**: Sempre use um ambiente virtual para isolar as dependências do projeto e evitar conflitos.
 
-## ⚠️ Observações
+# Criar ambiente virtual
+python3 -m venv venv
 
-É necessário GPU ou um bom processador para melhor desempenho do DeepFace.
-As imagens são salvas em static/fotos/ para cada usuário cadastrado.
-O limiar de similaridade está definido como 0.7. Você pode ajustar no app.py:
-
-LIMIAR = 0.7
-
-## 📜 Licença
-
-Este projeto é de uso educacional. Modifique e use livremente conforme suas necessidades.
+# Ativar
+source venv/bin/activate
