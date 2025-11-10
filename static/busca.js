@@ -7,7 +7,7 @@ const capturarBtn = document.getElementById('capturar');
 const enviarBtn = document.getElementById('enviar');
 const resultadoDiv = document.getElementById('resultado');
 
-let fotoBase64 = null; // ✅ Armazena a foto tirada
+let fotoBase64 = null; //  Armazena a foto tirada
 
 // Configuração do MediaPipe Face Detection
 const faceDetection = new FaceDetection({
@@ -21,7 +21,7 @@ faceDetection.setOptions({
 
 faceDetection.onResults(onResults);
 
-// ✅ Função que pede permissão e inicia a câmera
+// Função que pede permissão e inicia a câmera
 async function startCamera() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -46,7 +46,7 @@ async function startCamera() {
 
 startCamera();
 
-// ✅ Desenha o bounding box no rosto detectado
+// Desenha o bounding box no rosto detectado
 function onResults(results) {
   canvasElement.width = videoElement.videoWidth;
   canvasElement.height = videoElement.videoHeight;
@@ -68,7 +68,7 @@ function onResults(results) {
   }
 }
 
-// 📸 Captura a imagem do vídeo
+// captura a imagem do vídeo
 capturarBtn.addEventListener('click', () => {
   const canvas = document.createElement('canvas');
   canvas.width = videoElement.videoWidth || 640;
@@ -77,7 +77,7 @@ capturarBtn.addEventListener('click', () => {
   const ctx = canvas.getContext("2d");
   ctx.drawImage(videoElement, 0, 0);
 
-  fotoBase64 = canvas.toDataURL("image/jpeg"); // ✅ Salva na variável
+  fotoBase64 = canvas.toDataURL("image/jpeg"); // Salva na variável
 
   // Opcional: mostra preview
   const preview = document.getElementById('preview');
@@ -85,7 +85,7 @@ capturarBtn.addEventListener('click', () => {
   preview.style.display = "block";
 });
 
-// 🔍 Envia a foto para busca de rosto no backend
+// Envia a foto para busca de rosto no backend
 enviarBtn.addEventListener('click', async () => {
   if (!fotoBase64) {
     resultadoDiv.className = "alert alert-warning d-block";
