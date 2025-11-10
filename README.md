@@ -32,24 +32,27 @@ Este projeto permite:
 ---
 
 ## 📁 Estrutura do Projeto
-´´´
-projeto-reconhecimento-facial/
+```bash
+project04/
+│── app.py                # Backend Flask
+│── venv/                 # Ambiente virtual (opcional)
+├── fotos/               # Fotos salvas por usuário (cada pasta = 1 pessoa
 │
-├── app.py                  # Backend Flask (rotas e lógica principal)
 ├── static/
-│   ├── script.js           # Lógica de cadastro (captura + envio)
-│   └── busca.js            # Lógica de busca (captura + comparação)
-├── templates/
-│   ├── index.html          # Página de cadastro de rosto
-│   └── busca.html          # Página de busca/comparação
-├── fotos/                  # Pasta gerada automaticamente (não existe inicialmente)
-│   └── <nome>/
-│       ├── foto.jpg        # Imagem salva do usuário
-│       └── vetor.npy       # Embedding facial (FaceNet, salvo como NumPy array)
+│   ├── busca.js          # Script da tela de busca
+│   └── script.js         # Script da tela de cadastro
 │
-└── README.md
-´´´
+├── templates/
+│   ├── index.html        # Página inicial / Cadastro
+│   └── busca.html        # Página de busca facial
+|
+|── README.md
+│
+├── notes.txt
+│
+├── requeriments.txt
 
+```
 ---
 
 ## ▶️ Como Executar
