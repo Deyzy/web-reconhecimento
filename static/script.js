@@ -6,7 +6,7 @@ const enviarBtn = document.getElementById('enviar');
 const resultadoDiv = document.getElementById('resultado');
 const nomeInput = document.getElementById('nome');
 
-// Ativar webcam
+//webcam
 navigator.mediaDevices.getUserMedia({ video: true })
   .then(stream => {
     video.srcObject = stream;
@@ -16,7 +16,7 @@ navigator.mediaDevices.getUserMedia({ video: true })
     alert("Não foi possível acessar a câmera: " + err.message);
   });
 
-// captura a imagem da webcam
+//tira a foto
 capturarBtn.addEventListener('click', () => {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -27,7 +27,7 @@ capturarBtn.addEventListener('click', () => {
   preview.style.display = "block";
 });
 
-// Envia imagem para o backend Flask
+// Envia imagem para o backend
 enviarBtn.addEventListener('click', async () => {
   const nome = nomeInput.value.trim();
   if (!nome) {

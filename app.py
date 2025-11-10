@@ -8,15 +8,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-# Caminho absoluto da pasta do projeto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Pasta fotos dentro do projeto
+#fotos
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "fotos")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
-# ----------- FUNÇÃO BASE ------------
+#função base
 def extrair_rosto_e_embedding(imagem_bytes):
     """
     Recebe bytes de imagem e tenta extrair embedding facial.
@@ -55,7 +54,7 @@ def extrair_rosto_e_embedding(imagem_bytes):
         return None, "Falha ao processar imagem."
 
 
-# ----------- ROTAS ------------
+#rotas
 @app.route('/')
 def index():
     return render_template('index.html')

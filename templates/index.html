@@ -18,23 +18,18 @@
             <label for="nome" class="form-label">Nome:</label>
             <input type="text" id="nome" class="form-control mb-3" placeholder="Digite o seu nome completo">
 
-            <!-- Webcam -->
             <div class="text-center mb-3">
               <video id="webcam" autoplay playsinline class="w-100 rounded border"></video>
             </div>
 
-            <!-- Botão capturar -->
             <button id="capturar" class="btn btn-primary w-100 mb-3">📸 Tirar Foto</button>
 
-            <!-- Canvas invisível -->
             <canvas id="canvas" style="display:none;"></canvas>
 
-            <!-- Prévia da imagem capturada -->
             <img id="preview" class="w-100 rounded mt-3" style="display:none;" />
           </div>
         </div>
-
-        <!-- Botão enviar -->
+        
         <button id="enviar" class="btn btn-success w-100">Enviar Foto</button>
 
         <div id="resultado" class="alert mt-3 d-none"></div>
