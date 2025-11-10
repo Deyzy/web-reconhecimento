@@ -8,7 +8,11 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'fotos'
+# Caminho absoluto da pasta do projeto
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Pasta fotos dentro do projeto
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "fotos")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 

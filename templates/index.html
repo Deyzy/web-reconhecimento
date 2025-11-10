@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"  rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Foto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
-    <div class="container py-5">
-        <h2 class="mb-4 text-center">Cadastre sua Foto</h2>
 
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-body">
-                        <label for="nome" class="form-label">Nome: </label>
-                        <input type="text" id="nome" class="form-control mb-3" placeholder="Digite o seu nome completo">
+  <div class="container py-5">
+    <h2 class="mb-4 text-center">Cadastre sua Foto</h2>
 
-                        <div id="webcam-container">
-                            <video id="webcam" autoplay playsinline class="w-100 rounded mb-3"></video>
-                        </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <label for="nome" class="form-label">Nome:</label>
+            <input type="text" id="nome" class="form-control mb-3" placeholder="Digite o seu nome completo">
 
-                        <button id="capturar" class="btn btn-primary w-100 mb-3">Tirar Foto</button>
-                        <canvas id="canvas" style="display: none;"></canvas>
-                        <img id="preview" class="w-100 rounded mt-3" style="display:none;" />
-                    </div>
-                </div>
-                <button id="enviar" class="btn btn-success w-100">Enviar Foto</button>
+            <!-- Webcam -->
+            <div class="text-center mb-3">
+              <video id="webcam" autoplay playsinline class="w-100 rounded border"></video>
             </div>
-            <div id="resultado" class="alert mt-3 d-none"></div>
+
+            <!-- Botão capturar -->
+            <button id="capturar" class="btn btn-primary w-100 mb-3">📸 Tirar Foto</button>
+
+            <!-- Canvas invisível -->
+            <canvas id="canvas" style="display:none;"></canvas>
+
+            <!-- Prévia da imagem capturada -->
+            <img id="preview" class="w-100 rounded mt-3" style="display:none;" />
+          </div>
         </div>
+
+        <!-- Botão enviar -->
+        <button id="enviar" class="btn btn-success w-100">Enviar Foto</button>
+
+        <div id="resultado" class="alert mt-3 d-none"></div>
+      </div>
     </div>
-    <script src="/static/script.js"></script>
+  </div>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>
