@@ -75,3 +75,11 @@ python3 -m venv venv
 ```bash
 source venv/bin/activate
 ```
+### URL (Tela Inicial)
+```bash
+localhost:5001
+```
+### URL (Tela de busca facial)
+```bash
+localhost:5001/busca
+```
