@@ -33,7 +33,7 @@ Este projeto permite:
 
 ## 📁 Estrutura do Projeto
 ```bash
-project04/
+web-reconhecimento/
 │── app.py                # Backend Flask
 │── venv/                 # Ambiente virtual (opcional)
 ├── fotos/               # Fotos salvas por usuário (cada pasta = 1 pessoa
