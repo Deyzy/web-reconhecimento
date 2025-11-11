@@ -75,6 +75,10 @@ python3 -m venv venv
 ```bash
 source venv/bin/activate
 ```
+### 3. Instale as dependencias do projeto
+```bash
+pip install -r requirements.txt
+```
 ### URL (Tela Inicial)
 ```bash
 localhost:5001
