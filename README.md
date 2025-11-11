@@ -71,7 +71,7 @@ project04/
 ```bash
 python3 -m venv venv
 ```
-### Ativar
+### Ativar o ambiente virtual
 ```bash
 source venv/bin/activate
 ```
