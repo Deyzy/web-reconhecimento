@@ -61,7 +61,7 @@ web-reconhecimento/
 - Python 3.8 ou superior
 - `pip` instalado
 - Câmera web funcional
-- Navegador moderno (Chrome, Edge, Firefox)
+- Navegador (Chrome, Edge, Firefox)
 
 ### 2. **Criar e ativar um ambiente virtual**
 
